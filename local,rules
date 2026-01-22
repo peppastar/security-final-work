@@ -1,0 +1,4 @@
+# 匹配"union select"攻击特征，覆盖80/443端口，msg包含脚本识别的[WEB_ATTACK]
+# 精准匹配你的攻击特征“union select”，端口80，msg包含脚本识别的[WEB_ATTACK]
+alert tcp any any -> any 80 (msg:"[WEB_ATTACK] SQLi - Union Select注入"; content:"union select"; nocase; http_uri; sid:1000002; rev:1;)
+alert tcp any any -> any 443 (msg:"[WEB_ATTACK] SQLi - Union Select注入"; content:"union select"; nocase; http_uri; sid:1000003; rev:1;)
